@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <title>Dojo Survey - Form</title>
+</head>
+
+<body class="bg-info">
+    <div class="d-flex flex-column justify-content-center">
+        <section class="py-5 d-flex justify-content-center">
+            <div class="px-5 py-4 shadow rounded col-8 bg-light">
+                <form action="SubmittedInfo" method="post">
+                    <div class="form-group row">
+                        <label for="yourDojoName" class="col-sm-2 pb-4 col-form-label">Your Name:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="yourDojoName" id="yourDojoName"
+                                placeholder="John/Jane Doe">
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label for="yourDojoLocation" class="col-sm-2 pb-4 col-form-label">Dojo
+                            Location:</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="yourDojoLocation" id="yourDojoLocation">
+                                @{
+                                    foreach (string location in ViewBag.locations)
+                                    {
+                                        <option>@location</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label for="yourDojoLanguage" class="col-sm-2 pb-4 col-form-label">Favorite
+                            Language:</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="yourDojoLanguage" id="yourDojoLanguage">
+                                @{
+                                    foreach (string language in ViewBag.languages)
+                                    {
+                                        <option>@language</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="form-group pb-3">
+                        <label for="yourDojoComment">Comment (optional):</label>
+                        <textarea class="form-control" name="yourDojoComment" id="yourDojoComment" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary shadow">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
